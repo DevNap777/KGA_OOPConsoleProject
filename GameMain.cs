@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KGA_OOPConsoleProject.Scenes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,13 @@ namespace KGA_OOPConsoleProject
         /// </summary>
         public static void Start()
         {
+            // Dictionary Instance 생성
             sceneDic = new Dictionary<string, Scene>();
+            // TitleScene 추가
+            sceneDic.Add("Title", new TitleScene());
+
+            // 현재 Scene을 메인 Scene으로
+            curScene = sceneDic["Title"];
 
         }
 
@@ -39,8 +46,18 @@ namespace KGA_OOPConsoleProject
             while (gameOver == false)
             {
                 // 어떤 걸 돌아가게 할 것인가?
-                Console.Clear();
+                Console.CursorVisible = false;
 
+                Console.Clear();
+                curScene.Render();
+                Console.WriteLine();
+                curScene.Choice();
+                curScene.Input();
+                Console.WriteLine();
+                curScene.Result();
+                Console.WriteLine();
+                curScene.Wait();
+                curScene.Next();
             }
         }
 
