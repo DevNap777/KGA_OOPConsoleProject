@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KGA_OOPConsoleProject.GameObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,9 @@ namespace KGA_OOPConsoleProject.Scenes
         // bool 2차원 배열로 맵 생성
         private string[] mapData;
         private bool[,] map;
+
+        // Objects를 가지고 있을 수 있도록 List배열로 생성
+        private List<Object> objects = new List<Object>(); 
 
         public RoomScene()
         {
@@ -44,6 +48,10 @@ namespace KGA_OOPConsoleProject.Scenes
                     map[y, x] = mapData[y][x] == '▩' ? false : true;
                 }
             }
+
+            // Object 위치 설정
+            objects.Add(new Door("Home", 'D', new Vector(8, 18)));
+
             // RoomScene에서 player 위치 설정
             GameMain.Player.position = new Vector(8, 4);
             GameMain.Player.map = map;
@@ -53,7 +61,11 @@ namespace KGA_OOPConsoleProject.Scenes
         {
             // 맵 출력
             PrintMap();
-
+            // Object 출력
+            foreach (Object loop in objects)
+            {
+                loop.PrintObject();
+            }
             // player 출력
             GameMain.Player.PrintPlayer();
         }
