@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace KGA_OOPConsoleProject
 {
-    /// <summary>
-    /// 게임의 모든 Scene들을 담고 있을 부모 클래스
-    /// 추상 클래스로 설정 후 자식 클래스에서 받은 예정
-    /// </summary>
-    public abstract class Scene
+    public abstract class Field
     {
         /// <summary>
         /// 자식 클래스에서만 사용할 수 있도록 protected 설정
@@ -38,8 +34,6 @@ namespace KGA_OOPConsoleProject
             input = Console.ReadKey(true).Key;
         }
 
-        public abstract void Update();
-
 
         /// <summary>
         /// 선택에 따른 결과 출력
@@ -57,6 +51,5 @@ namespace KGA_OOPConsoleProject
         /// 다음 Scene으로 전환
         /// </summary>
         public abstract void Next();
-
     }
 }

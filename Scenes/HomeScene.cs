@@ -22,12 +22,17 @@ namespace KGA_OOPConsoleProject.Scenes
             Console.WriteLine("2. 더 잔다.");
         }
 
+        public override void Update()
+        {
+
+        }
+
         public override void Result()
         {
             switch (input)
             {
                 case ConsoleKey.D1:
-                    Console.WriteLine("누구지...? 밖으로 나가보자");
+                    Console.WriteLine("누구지...? 확인하러 가보자..");
                     break;
                 case ConsoleKey.D2:
                     Console.Clear();
@@ -47,7 +52,12 @@ namespace KGA_OOPConsoleProject.Scenes
         }
         public override void Next()
         {
-            
+            switch (input)
+            {
+                case ConsoleKey.D1:
+                    GameMain.ChangeScene("Room");
+                    break;
+            }
         }
     }
 }

@@ -23,6 +23,11 @@ namespace KGA_OOPConsoleProject.Scenes
             Console.WriteLine("3. Exit");
         }
 
+        public override void Update()
+        {
+
+        }
+
         public override void Result()
         {
             

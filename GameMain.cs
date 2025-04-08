@@ -22,21 +22,35 @@ namespace KGA_OOPConsoleProject
         // Scene은 현재 Scene이다 설정
         private static Scene curScene;
 
+        // 게임 내에서 플레이어를 건들지 못하게 private 선언 후
+        // property를 사용해 읽기로 구현
+        private static Player player;
+        public static Player Player { get { return player; } }
+
         /// <summary>
         /// 게임 시작
         /// </summary>
         public static void Start()
         {
+            // gameOver는 false 상태로 구동
+            gameOver = false;
+
+
             // Dictionary Instance 생성
-            sceneDic = new Dictionary<string, Scene>();
+            sceneDic = new();
             // TitleScene 추가
             sceneDic.Add("Title", new TitleScene());
             // HomeScene 추가
             sceneDic.Add("Home", new HomeScene());
+            // RoomScene 추가
+            sceneDic.Add("Room", new RoomScene());
+
+            // 게임 시작 시 player 생성
+            player = new Player();
+
 
             // 현재 Scene을 메인 Scene으로
             curScene = sceneDic["Title"];
-            
         }
 
         /// <summary>
@@ -55,6 +69,8 @@ namespace KGA_OOPConsoleProject
                 Console.WriteLine();
                 curScene.Choice();
                 curScene.Input();
+                Console.WriteLine();
+                curScene.Update();
                 Console.WriteLine();
                 curScene.Result();
                 Console.WriteLine();
