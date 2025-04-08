@@ -35,6 +35,8 @@ namespace KGA_OOPConsoleProject
             // gameOver는 false 상태로 구동
             gameOver = false;
 
+            // 게임 시작 시 player 생성
+            player = new Player();
 
             // Dictionary Instance 생성
             sceneDic = new();
@@ -44,10 +46,6 @@ namespace KGA_OOPConsoleProject
             sceneDic.Add("Home", new HomeScene());
             // RoomScene 추가
             sceneDic.Add("Room", new RoomScene());
-
-            // 게임 시작 시 player 생성
-            player = new Player();
-
 
             // 현재 Scene을 메인 Scene으로
             curScene = sceneDic["Title"];
