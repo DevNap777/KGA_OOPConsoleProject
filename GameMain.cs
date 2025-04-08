@@ -31,10 +31,12 @@ namespace KGA_OOPConsoleProject
             sceneDic = new Dictionary<string, Scene>();
             // TitleScene 추가
             sceneDic.Add("Title", new TitleScene());
+            // HomeScene 추가
+            sceneDic.Add("Home", new HomeScene());
 
             // 현재 Scene을 메인 Scene으로
             curScene = sceneDic["Title"];
-
+            
         }
 
         /// <summary>
@@ -67,6 +69,15 @@ namespace KGA_OOPConsoleProject
         public static void End()
         {
 
+        }
+
+        /// <summary>
+        /// sceneName을 통해 각 Scene으로 이동 구현
+        /// </summary>
+        /// <param name="sceneName"></param>
+        public static void ChangeScene(string sceneName)
+        {
+            curScene = sceneDic[sceneName];
         }
     }
 }

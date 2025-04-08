@@ -34,7 +34,12 @@ namespace KGA_OOPConsoleProject.Scenes
         }
         public override void Next()
         {
-            
+            switch (input)
+            {
+                case ConsoleKey.D1:
+                    GameMain.ChangeScene("Home");
+                    break;
+            }
         }
     }
 }
