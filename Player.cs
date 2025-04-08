@@ -12,9 +12,12 @@ namespace KGA_OOPConsoleProject
         // Player의 위치를 나타내기 위해 Vector 구조체 사용
         public Vector position;
 
+        // Player에 map을 넣어서 구동될 수 있게 함.
+        public bool[,] map;
+
         public void PrintPlayer()
         {
-            Console.SetCursorPosition(position.y, position.x);
+            Console.SetCursorPosition(position.x, position.y);
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("●");
             Console.ResetColor();
@@ -26,24 +29,31 @@ namespace KGA_OOPConsoleProject
         /// <param name="input"></param>
         public void MovePlayer(ConsoleKey input)
         {
+            Vector movePosition = position;
+
             switch (input)
             {
                 case ConsoleKey.UpArrow:
                 case ConsoleKey.W:
-                    position.y--;
+                    movePosition.y--;
                     break;
                 case ConsoleKey.DownArrow:
                 case ConsoleKey.S:
-                    position.y++;
+                    movePosition.y++;
                     break;
                 case ConsoleKey.LeftArrow:
                 case ConsoleKey.A:
-                    position.x--;
+                    movePosition.x--;
                     break;
                 case ConsoleKey.RightArrow:
                 case ConsoleKey.D:
-                    position.x++;
+                    movePosition.x++;
                     break;
+            }
+
+            if (map[movePosition.y, movePosition.x] == true)
+            {
+                position = movePosition;
             }
         }
     }

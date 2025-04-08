@@ -19,20 +19,17 @@ namespace KGA_OOPConsoleProject.Scenes
 
         public RoomScene()
         {
-            // RoomScene에서 player 위치 설정
-            GameMain.Player.position = new Vector(1, 1);
-
             mapData = new string[]
             {
                 "▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩", // 20 / 10
                 "▩                  ▩",
-                "▩                  ▩",
-                "▩                  ▩",
-                "▩                  ▩",
-                "▩                  ▩",
-                "▩                  ▩",
-                "▩                  ▩",
-                "▩                  ▩",
+                "▩▩▩▩▩▩▩▩     ▩     ▩",
+                "▩      ▩     ▩     ▩",
+                "▩      ▩     ▩     ▩",
+                "▩▩▩  ▩▩▩     ▩     ▩",
+                "▩            ▩▩▩▩▩▩▩",
+                "▩▩▩  ▩▩▩           ▩",
+                "▩      ▩           ▩",
                 "▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩",
             };
 
@@ -47,6 +44,9 @@ namespace KGA_OOPConsoleProject.Scenes
                     map[y, x] = mapData[y][x] == '▩' ? false : true;
                 }
             }
+            // RoomScene에서 player 위치 설정
+            GameMain.Player.position = new Vector(8, 4);
+            GameMain.Player.map = map;
         }
 
         public override void Render()

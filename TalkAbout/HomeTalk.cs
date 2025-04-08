@@ -22,6 +22,7 @@ namespace KGA_OOPConsoleProject.TalkAbout
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("                                     Enter...");
+            
             Console.ReadLine();
             Console.Clear();
 

@@ -32,6 +32,8 @@ namespace KGA_OOPConsoleProject
         /// </summary>
         public static void Start()
         {
+            Console.CursorVisible = false;
+
             // gameOver는 false 상태로 구동
             gameOver = false;
 
@@ -59,8 +61,7 @@ namespace KGA_OOPConsoleProject
             // 게임오버가 아니라면 게임이 계속 돌아가게 하겠다.
             while (gameOver == false)
             {
-                // 어떤 걸 돌아가게 할 것인가?
-                Console.CursorVisible = false;
+                // 어떤 걸 돌아가게 할 것인가? 
 
                 Console.Clear();
                 curScene.Render();
