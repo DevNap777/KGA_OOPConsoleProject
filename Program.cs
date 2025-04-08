@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            dsafasdfdsaf
+            GameMain.Start();
+            GameMain.Run();
+            GameMain.End();
         }
     }
 }
