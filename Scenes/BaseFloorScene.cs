@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KGA_OOPConsoleProject.Scenes
 {
-    public class RoomScene : Scene
+    public class BaseFloorScene : Scene
     {
         /// <summary>
         /// Player가 이동할 수 있는 맵 생성
@@ -15,47 +15,11 @@ namespace KGA_OOPConsoleProject.Scenes
         
         // string 배열로 mapData를 받고 
         // bool 2차원 배열로 맵 생성
-        private string[] mapData;
-        private bool[,] map;
+        protected string[] mapData;
+        protected bool[,] map;
 
         // Objects를 가지고 있을 수 있도록 List배열로 생성
-        private List<Object> objects = new List<Object>(); 
-
-        public RoomScene()
-        {
-            mapData = new string[]
-            {
-                "▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩", // 20 / 10
-                "▩                  ▩",
-                "▩▩▩▩▩▩▩▩     ▩     ▩",
-                "▩      ▩     ▩     ▩",
-                "▩      ▩     ▩     ▩",
-                "▩▩▩  ▩▩▩     ▩     ▩",
-                "▩            ▩▩▩▩▩▩▩",
-                "▩▩▩  ▩▩▩           ▩",
-                "▩      ▩           ▩",
-                "▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩",
-            };
-
-            map = new bool[10, 20];
-
-            for (int y = 0; y < map.GetLength(0); y++)
-            {
-                for (int x = 0; x < map.GetLength(1); x++)
-                {
-                    // 2차원 배열에서 ? 조건 연산자 사용.
-                    // ? 왼쪽이 맞다면 false(이동불가), 아니라면 true(이동 가능)
-                    map[y, x] = mapData[y][x] == '▩' ? false : true;
-                }
-            }
-
-            // Object 위치 설정
-            objects.Add(new Door("Home", 'D', new Vector(8, 18)));
-
-            // RoomScene에서 player 위치 설정
-            GameMain.Player.position = new Vector(8, 4);
-            GameMain.Player.map = map;
-        }
+        protected List<Object> objects; 
 
         public override void Render()
         {
@@ -80,12 +44,17 @@ namespace KGA_OOPConsoleProject.Scenes
 
         public override void Result()
         {
-
-        }
-
-        public override void Wait()
-        {
-
+            // doorObject와 player가 겹쳐 상호작용하면
+            // object 전체를 순회하면서
+            foreach (Object loop in objects)
+            {
+                // 만약 player와 object의 위치가 같다면
+                if (GameMain.Player.position.x == loop.position.x && GameMain.Player.position.y == loop.position.y)
+                {
+                    // 상호작용 할 수 있도록
+                    loop.Interact(GameMain.Player);
+                }
+            }
         }
         public override void Next()
         {

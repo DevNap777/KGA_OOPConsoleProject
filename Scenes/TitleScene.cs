@@ -11,8 +11,8 @@ namespace KGA_OOPConsoleProject.Scenes
         public override void Render()
         {
             Console.WriteLine("/////..././/././/////.//...///...////");
-            Console.WriteLine("//             하얀 섬             ..");
-            Console.WriteLine("..           White IsLand          //");
+            Console.WriteLine("//             ㅋㅋ ㅋ             ..");
+            Console.WriteLine("..           ㅋㅋㅋㅋㅋㅋ          //");
             Console.WriteLine("/..//..././/././/..///.//...///...///");
             Console.WriteLine();
         }
@@ -33,10 +33,6 @@ namespace KGA_OOPConsoleProject.Scenes
             
         }
 
-        public override void Wait()
-        {
-            
-        }
         public override void Next()
         {
             switch (input)

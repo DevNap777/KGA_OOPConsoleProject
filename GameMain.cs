@@ -47,7 +47,9 @@ namespace KGA_OOPConsoleProject
             // HomeScene 추가
             sceneDic.Add("Home", new HomeScene());
             // RoomScene 추가
-            sceneDic.Add("Room", new RoomScene());
+            sceneDic.Add("TopFloor", new TopFloorScene());
+            //
+            sceneDic.Add("SecondFloor", new SecondFloorScene());
 
             // 현재 Scene을 메인 Scene으로
             curScene = sceneDic["Title"];
@@ -73,7 +75,6 @@ namespace KGA_OOPConsoleProject
                 Console.WriteLine();
                 curScene.Result();
                 Console.WriteLine();
-                curScene.Wait();
                 curScene.Next();
             }
         }

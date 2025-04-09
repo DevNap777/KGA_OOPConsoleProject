@@ -18,8 +18,8 @@ namespace KGA_OOPConsoleProject.Scenes
 
         public override void Choice()
         {
-            Console.WriteLine("1. 문을 열어준다.");
-            Console.WriteLine("2. 더 잔다.");
+            Console.WriteLine("1. 문을 열어본다.");
+            Console.WriteLine("2. 그냥 있는다.");
         }
 
         public override void Update()
@@ -32,7 +32,7 @@ namespace KGA_OOPConsoleProject.Scenes
             switch (input)
             {
                 case ConsoleKey.D1:
-                    Console.WriteLine("누구지...? 확인하러 가보자..");
+                    Console.WriteLine("문이 닫혀있다. 나갈 방법을 찾아보자.");
                     break;
                 case ConsoleKey.D2:
                     Console.Clear();
@@ -44,18 +44,13 @@ namespace KGA_OOPConsoleProject.Scenes
 
             }
         }
-
-        public override void Wait()
-        {
-            Console.WriteLine("                        Enter...");
-            Console.ReadLine();
-        }
         public override void Next()
         {
             switch (input)
             {
                 case ConsoleKey.D1:
-                    GameMain.ChangeScene("Room");
+                    Console.Clear();
+                    GameMain.ChangeScene("TopFloor");
                     break;
             }
         }

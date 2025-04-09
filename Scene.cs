@@ -48,12 +48,6 @@ namespace KGA_OOPConsoleProject
 
 
         /// <summary>
-        /// 다음 Scene으로 넘어가기 위한 입력 대기
-        /// </summary>
-        public abstract void Wait();
-
-
-        /// <summary>
         /// 다음 Scene으로 전환
         /// </summary>
         public abstract void Next();

@@ -17,8 +17,8 @@ namespace KGA_OOPConsoleProject.TalkAbout
             Console.ReadLine();
             Console.Clear();
 
-            Console.WriteLine("??? : 으... 피곤해...");
-            Utill.Print("??? : 오늘이 출발하는 날이지... 지금 몇시야..?", ConsoleColor.White, 1000);
+            Console.WriteLine("??? : 으... 머리야...");
+            Utill.Print("??? : 뭐지.. 여긴 어디지...?", ConsoleColor.White, 1000);
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("                                     Enter...");
@@ -26,7 +26,8 @@ namespace KGA_OOPConsoleProject.TalkAbout
             Console.ReadLine();
             Console.Clear();
 
-            Console.WriteLine("??? : 야 \"나아암사아치이인!\" 빨리 안나올래!!??");
+            Console.WriteLine("덜컥 덜컥..");
+            Utill.Print("??? : 어....", ConsoleColor.White, 1000);
             Console.WriteLine();
         }
     }

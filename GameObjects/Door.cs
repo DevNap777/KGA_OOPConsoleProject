@@ -11,6 +11,7 @@ namespace KGA_OOPConsoleProject.GameObjects
     /// </summary>
     public class Door : Object
     {
+
         // Object와 상호작용을 하게 되면 이동을 해야 하므로
         private string sceneName;
         public Door(string scnenName, char doorObject, Vector position) : base(ConsoleColor.Yellow, doorObject, position)
