@@ -75,7 +75,6 @@ namespace KGA_OOPConsoleProject
                 Console.WriteLine();
                 curScene.Result();
                 Console.WriteLine();
-                curScene.Next();
             }
         }
 

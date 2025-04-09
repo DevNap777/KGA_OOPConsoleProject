@@ -33,6 +33,9 @@ namespace KGA_OOPConsoleProject.Scenes
             {
                 case ConsoleKey.D1:
                     Console.WriteLine("문이 닫혀있다. 나갈 방법을 찾아보자.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    GameMain.ChangeScene("TopFloor");
                     break;
                 case ConsoleKey.D2:
                     Console.Clear();
@@ -40,17 +43,8 @@ namespace KGA_OOPConsoleProject.Scenes
                     Console.WriteLine("평생... 잠이나 쳐 자세요...");
                     Console.WriteLine("BAD ENDING");
                     Console.ResetColor();
-                    return;
-
-            }
-        }
-        public override void Next()
-        {
-            switch (input)
-            {
-                case ConsoleKey.D1:
-                    Console.Clear();
-                    GameMain.ChangeScene("TopFloor");
+                    Console.WriteLine("\n\n\tEnter를 눌러 계속");
+                    Console.ReadLine();
                     break;
             }
         }

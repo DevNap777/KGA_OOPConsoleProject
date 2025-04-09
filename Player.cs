@@ -15,12 +15,41 @@ namespace KGA_OOPConsoleProject
         // Player에 map을 넣어서 구동될 수 있게 함.
         public bool[,] map;
 
+        // Player가 Inventory를 가지고 있도록 구현
+        public Inventory inventory;
+
+        // Player 생성자에 Invertory 포함
+        public Player()
+        {
+            inventory = new Inventory();
+        }
+
         public void PrintPlayer()
         {
             Console.SetCursorPosition(position.x, position.y);
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("●");
             Console.ResetColor();
+        }
+
+        public void OpneInventory(ConsoleKey input)
+        {
+            switch (input)
+            {
+                case ConsoleKey.UpArrow:
+                case ConsoleKey.W:
+                case ConsoleKey.DownArrow:
+                case ConsoleKey.S:                    
+                case ConsoleKey.LeftArrow:
+                case ConsoleKey.A:                    
+                case ConsoleKey.RightArrow:
+                case ConsoleKey.D:
+                    MovePlayer(input);
+                    break;
+                case ConsoleKey.I:
+                    inventory.Open();
+                    break;
+            }
         }
 
         /// <summary>

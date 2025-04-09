@@ -45,12 +45,5 @@ namespace KGA_OOPConsoleProject
         /// 선택에 따른 결과 출력
         /// </summary>
         public abstract void Result();
-
-
-        /// <summary>
-        /// 다음 Scene으로 전환
-        /// </summary>
-        public abstract void Next();
-
     }
 }

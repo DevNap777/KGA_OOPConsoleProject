@@ -32,6 +32,9 @@ namespace KGA_OOPConsoleProject.Scenes
             }
             // player 출력
             GameMain.Player.PrintPlayer();
+
+            Console.SetCursorPosition(0, map.GetLength(0) + 6);
+            GameMain.Player.inventory.PrintAll();
         }
         public override void Choice()
         {
@@ -53,12 +56,15 @@ namespace KGA_OOPConsoleProject.Scenes
                 {
                     // 상호작용 할 수 있도록
                     loop.Interact(GameMain.Player);
+
+                    // 1회용 아이템 획득 후 지우기
+                    if (loop.useOnlyOne == true)
+                    {
+                        objects.Remove(loop);
+                    }
+                    break;
                 }
             }
-        }
-        public override void Next()
-        {
-
         }
 
         private void PrintMap()

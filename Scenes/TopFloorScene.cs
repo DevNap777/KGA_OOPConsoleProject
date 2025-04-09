@@ -1,4 +1,5 @@
 ﻿using KGA_OOPConsoleProject.GameObjects;
+using KGA_OOPConsoleProject.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,7 @@ namespace KGA_OOPConsoleProject.Scenes
             // Object 위치 설정
             objects = new List<Object>(); 
             objects.Add(new Door("SecondFloor", 'D', new Vector(4, 16)));
+            objects.Add(new Key(new Vector(4, 1)));
 
             // RoomScene에서 player 위치 설정
             GameMain.Player.position = new Vector(1, 1);

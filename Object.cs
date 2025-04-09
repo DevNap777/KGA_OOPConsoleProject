@@ -15,10 +15,13 @@ namespace KGA_OOPConsoleProject
         // Object 정보들
         // Object 색 지정, 변수 선언 및 초기화
         public ConsoleColor consoleColor;
-        public char doorObject;
+        public char symbol;
 
         // Object의 위치
         public Vector position;
+
+        // 열쇠 오브젝트를 위한 변수
+        public bool useOnlyOne;
 
 
         // Object가 표현될 방법
@@ -28,17 +31,18 @@ namespace KGA_OOPConsoleProject
             Console.SetCursorPosition(position.x, position.y);
             Console.ForegroundColor = consoleColor;
             // doorObject 표현
-            Console.Write(doorObject);
+            Console.Write(symbol);
             Console.ResetColor();
         }
 
         // Utill과 비슷한 느낌으로 구현
         // 생성자에 내용을 포함하여 구현
-        public Object(ConsoleColor consoleColor, char doorObject, Vector position)
+        public Object(ConsoleColor consoleColor, char symbol, Vector position, bool useOnlyOne)
         {
             this.consoleColor = consoleColor;
-            this.doorObject = doorObject;
+            this.symbol = symbol;
             this.position = position;
+            this.useOnlyOne = useOnlyOne;
         }
 
         public abstract void Interact(Player player);

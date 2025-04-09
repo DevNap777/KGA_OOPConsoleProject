@@ -30,11 +30,6 @@ namespace KGA_OOPConsoleProject.Scenes
 
         public override void Result()
         {
-            
-        }
-
-        public override void Next()
-        {
             switch (input)
             {
                 case ConsoleKey.D1:
