@@ -43,6 +43,7 @@ namespace KGA_OOPConsoleProject.Scenes
         public override void Update()
         {
             GameMain.Player.MovePlayer(input);
+            GameMain.Player.OpneInventory(input);
         }
 
         public override void Result()

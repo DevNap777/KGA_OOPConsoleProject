@@ -130,12 +130,12 @@ namespace KGA_OOPConsoleProject
 
         public void PrintAll()
         {
-            Console.WriteLine("보유 아이템 목록");
+            Console.WriteLine("##### 보유 아이템 목록 #####");
             for (int i = 0; i < items.Count; i++)
             {
                 Console.WriteLine($"{i+1}, {items[i].name}");
             }
-            Console.WriteLine();
+            Console.WriteLine("############################");
         }
     }
 }

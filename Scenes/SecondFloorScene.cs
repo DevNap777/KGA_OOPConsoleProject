@@ -34,6 +34,7 @@ namespace KGA_OOPConsoleProject.Scenes
             }
 
             // Object 위치 설정
+            // TODO : 1층 구현해서 바꿔야 함
             objects = new List<Object>();
             objects.Add(new Door("Home", 'D', new Vector(4, 1)));
 

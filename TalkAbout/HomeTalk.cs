@@ -27,6 +27,7 @@ namespace KGA_OOPConsoleProject.TalkAbout
             Console.Clear();
 
             Console.WriteLine("덜컥 덜컥..");
+            Console.WriteLine();
             Utill.Print("??? : 어....", ConsoleColor.White, 1000);
             Console.WriteLine();
         }
