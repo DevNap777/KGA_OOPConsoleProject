@@ -13,7 +13,7 @@ namespace KGA_OOPConsoleProject.GameObjects
     /// </summary>
     public class Door : Object
     {
-        
+        private List<Inventory> inventories;
         // Object와 상호작용을 하게 되면 이동을 해야 하므로
         private string sceneName;
         public Door(string scnenName, char symbol, Vector position) : base(ConsoleColor.Yellow, symbol, position, false)
@@ -25,6 +25,10 @@ namespace KGA_OOPConsoleProject.GameObjects
         {
             // TODO : 여기서 key를 받고
             // TODO : 그 다음에 씬 전환
+            //foreach (Inventory loop in inventories)
+            //{
+            //    if()
+            //}
             GameMain.ChangeScene(sceneName);
         }
     }

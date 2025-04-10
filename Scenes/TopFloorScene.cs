@@ -12,12 +12,14 @@ namespace KGA_OOPConsoleProject.Scenes
     {
         public TopFloorScene()
         {
+            name = "TopFloor";
+
             mapData = new string[]
            {
                 "▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩", // y = 6, x = 8
-                "▩                ▩",
-                "▩                ▩",
-                "▩                ▩",
+                "▩          ▩     ▩",
+                "▩▩▩▩▩▩     ▩     ▩",
+                "▩    ▩     ▩     ▩",
                 "▩                ▩",
                 "▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩",
            };
@@ -39,8 +41,15 @@ namespace KGA_OOPConsoleProject.Scenes
             objects.Add(new Door("SecondFloor", 'D', new Vector(4, 16)));
             objects.Add(new Key(new Vector(4, 1)));
 
-            // RoomScene에서 player 위치 설정
             GameMain.Player.position = new Vector(1, 1);
+        }
+
+        public override void Enter()
+        {
+            if (GameMain.beforeScene == "SecondFloor")
+            {
+                GameMain.Player.position = new Vector(4, 16);
+            }
             GameMain.Player.map = map;
         }
     }

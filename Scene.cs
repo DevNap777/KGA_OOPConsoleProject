@@ -12,6 +12,7 @@ namespace KGA_OOPConsoleProject
     /// </summary>
     public abstract class Scene
     {
+        public string name;
         /// <summary>
         /// 자식 클래스에서만 사용할 수 있도록 protected 설정
         /// </summary>
@@ -45,5 +46,21 @@ namespace KGA_OOPConsoleProject
         /// 선택에 따른 결과 출력
         /// </summary>
         public abstract void Result();
+
+        /// <summary>
+        /// Scene 전환을 위한 들어간다 함수
+        /// </summary>
+        public virtual void Enter()
+        {
+
+        }
+
+        /// <summary>
+        /// Scene 전환을 위한 나간다 함수
+        /// </summary>
+        public virtual void Exit()
+        {
+
+        }
     }
 }

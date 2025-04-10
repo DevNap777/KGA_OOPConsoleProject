@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace KGA_OOPConsoleProject.Scenes
 {
-    public class SecondFloorScene : BaseFloorScene
+    public class FirstFloorScene : BaseFloorScene
     {
-        public SecondFloorScene()
+        public FirstFloorScene()
         {
-            name = "SecondFloor";
+            name = "FirstFloor";
 
             mapData = new string[]
            {
-                "▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩", // y = 6, x = 8
-                "▩          ▩ ▩   ▩",
-                "▩▩▩▩▩▩▩▩▩  ▩ ▩   ▩",
-                "▩          ▩ ▩   ▩",
-                "▩                ▩",
+                "▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩", // y = 6, x = 18
+                "▩ ▩   ▩   ▩   ▩  ▩",
+                "▩ ▩ ▩ ▩ ▩ ▩ ▩ ▩  ▩",
+                "▩ ▩ ▩ ▩ ▩ ▩ ▩ ▩  ▩",
+                "▩   ▩   ▩   ▩    ▩",
                 "▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩▩",
            };
 
@@ -37,21 +37,31 @@ namespace KGA_OOPConsoleProject.Scenes
 
             // Object 위치 설정
             objects = new List<Object>();
-            objects.Add(new Door("FirstFloor", 'D', new Vector(4, 1)));
-            objects.Add(new Door("TopFloor", 'D', new Vector(1, 1)));
+            objects.Add(new Door("FirstFloor", 'D', new Vector(1, 16)));
         }
 
         public override void Enter()
         {
-            if (GameMain.beforeScene == "TopFloor")
+            if (GameMain.beforeScene == "SecondFloor")
             {
                 GameMain.Player.position = new Vector(1, 1);
             }
-            else if (GameMain.beforeScene == "FirstFloor")
-            {
-                GameMain.Player.position = new Vector(4, 1);
-            }
             GameMain.Player.map = map;
+        }
+
+        public override void Exit()
+        {
+            foreach (Object loop in objects)
+            {
+                // 만약 player와 object의 위치가 같다면
+                if (GameMain.Player.position.x == loop.position.x && 
+                    GameMain.Player.position.y == loop.position.y)
+                {
+                    // 상호작용 할 수 있도록
+                    Console.Clear();
+                    GameMain.GameOver("아오.. 머리야...");
+                }
+            }
         }
     }
 }

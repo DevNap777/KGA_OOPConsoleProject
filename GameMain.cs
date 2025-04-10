@@ -22,6 +22,9 @@ namespace KGA_OOPConsoleProject
         // Scene은 현재 Scene이다 설정
         private static Scene curScene;
 
+        // 변경된 Scene 설정
+        public static string beforeScene;
+
         // 게임 내에서 플레이어를 건들지 못하게 private 선언 후
         // property를 사용해 읽기로 구현
         private static Player player;
@@ -46,10 +49,12 @@ namespace KGA_OOPConsoleProject
             sceneDic.Add("Title", new TitleScene());
             // HomeScene 추가
             sceneDic.Add("Home", new HomeScene());
-            // RoomScene 추가
+            // TopFloorScene 추가
             sceneDic.Add("TopFloor", new TopFloorScene());
-            //
+            // SecondFloorScene 추가
             sceneDic.Add("SecondFloor", new SecondFloorScene());
+            // FirstFloorScene 추가
+            sceneDic.Add("FirstFloor", new FirstFloorScene());
 
             // 현재 Scene을 메인 Scene으로
             curScene = sceneDic["Title"];
@@ -92,7 +97,23 @@ namespace KGA_OOPConsoleProject
         /// <param name="sceneName"></param>
         public static void ChangeScene(string sceneName)
         {
+            beforeScene = curScene.name;
+
+            curScene.Exit();
             curScene = sceneDic[sceneName];
+            curScene.Enter();
+        }
+
+        public static void GameOver(string reasone)
+        {
+            Console.WriteLine("/////..././/././/////.//...///...////");
+            Console.WriteLine("..                                 //");
+            Console.WriteLine("//             ㅎ...ㅎ..           ..");
+            Console.WriteLine("..                                 //");
+            Console.WriteLine("/..//..././/././/..///.//...///...///");
+            Console.WriteLine();
+            Console.WriteLine(reasone);
+            gameOver = true;
         }
     }
 }

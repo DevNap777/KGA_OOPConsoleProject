@@ -9,6 +9,11 @@ namespace KGA_OOPConsoleProject.Scenes
 {
     public class HomeScene : Scene
     {
+        public HomeScene()
+        {
+            name = "Home";
+        }
+
         HomeTalk HomeTalk = new();
 
         public override void Render()
